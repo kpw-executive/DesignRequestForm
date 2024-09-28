@@ -30,16 +30,6 @@ function generateTemplate() {
     const bikou2 = document.getElementById('bikou2').value;
     const comment = document.getElementById('comment').value;
 
-    console.log("logo: " + isCheckLogo);
-    console.log("banner: " + isCheckBanner);
-    console.log("icon: " + isCheckIcon);
-    console.log("fly: " + isCheckFly);
-    console.log("etc: " + isCheckOther);
-    console.log("isYes" + isYes);
-    console.log("isNo" + isNo);
-    console.log("hai: " + isHai);
-    console.log("iie: " + isIie);
-
     if (!isYes && !isNo) {
         alert('アイデアの提案が必要か選択してください．');
         return;
