@@ -35,6 +35,7 @@ function generateTemplate() {
 
     if (name.length == 0) {
         errorMessage += "ユーザー名は必須項目です．";
+        error = true;
     }
 
     if (user.length == 0) {
@@ -42,6 +43,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "ユーザーIDは必須項目です．";
+        error = true;
     }
 
     if (project.length == 0) {
@@ -49,6 +51,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "プロジェクト名は必須項目です．";
+        error = true;
     }
 
     if (mokuteki.length == 0) {
@@ -56,6 +59,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "デザインの目的は必須項目です．";
+        error = true;
     }
 
     if (!isCheckLogo && !isCheckBanner && !isCheckIcon && !isCheckFly && !isCheckOther) {
@@ -63,11 +67,13 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "必要なデザイン物を選択してください．";
+        error = true;
     }else if (isCheckOther && other.length == 0){
         if (errorMessage.length != 0) {
             errorMessage += "\n";
         }
         errorMessage += "その他のデザイン物の種類を入力してください．";
+        error = true;
     }
 
     if (size.length == 0) {
@@ -75,6 +81,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "デザインのサイズは必須項目です．";
+        error = true;
     }
 
     if (!isPng && !isJpeg && !isEtc) {
@@ -82,11 +89,13 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += "必要なデザインの形式を選択してください．";
+        error = true;
     }else if (isEtc && other2.length == 0) {
         if (errorMessage.length != 0) {
             errorMessage += "\n";
         }
         errorMessage += "その他のデザイン形式の種類を入力してください．";
+        error = true;
     }
 
     if (!isYes && !isNo) {
@@ -94,6 +103,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += 'アイデアの提案が必要か選択してください．';
+        error = true;
     }
 
     if (!isHai && !isIie) {
@@ -101,6 +111,7 @@ function generateTemplate() {
             errorMessage += "\n";
         }
         errorMessage += '製作開始の依頼を選択してください．';
+        error = true;
     }
 
     if (error) {
