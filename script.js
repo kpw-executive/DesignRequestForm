@@ -21,6 +21,7 @@ function generateTemplate() {
     const logo = document.getElementById('logo').value;
     const sankou = document.getElementById('sankou').value;
     const time = document.getElementById('meeting-time').value;
+    const bikou3 = document.getElementById('bikou3').value;
     const youbou = document.getElementById('youbou').value;
     const isYes = document.getElementById('yes').checked;
     const isNo = document.getElementById('no').checked;
@@ -211,6 +212,7 @@ function generateTemplate() {
     
 9. 納期
     - [${time.replace("T", " ")}]
+    - [${bikou3.length > 0 ? bikou3 : "なし"}]
     
 10. 追加の要望
     - [${youbou.length > 0 ? youbou : "なし"}]
