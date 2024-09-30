@@ -30,13 +30,81 @@ function generateTemplate() {
     const bikou2 = document.getElementById('bikou2').value;
     const comment = document.getElementById('comment').value;
 
+    let error = false;
+    let errorMessage = "";
+
+    if (name.length == 0) {
+        errorMessage += "ユーザー名は必須項目です．";
+    }
+
+    if (user.length == 0) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "ユーザーIDは必須項目です．";
+    }
+
+    if (project.length == 0) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "プロジェクト名は必須項目です．";
+    }
+
+    if (mokuteki.length == 0) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "デザインの目的は必須項目です．";
+    }
+
+    if (!isCheckLogo && !isCheckBanner && !isCheckIcon && !isCheckFly && !isCheckOther) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "必要なデザイン物を選択してください．";
+    }else if (isCheckOther && other.length == 0){
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "その他のデザイン物の種類を入力してください．";
+    }
+
+    if (size.length == 0) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "デザインのサイズは必須項目です．";
+    }
+
+    if (!isPng && !isJpeg && !isEtc) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "必要なデザインの形式を選択してください．";
+    }else if (isEtc && other2.length == 0) {
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += "その他のデザイン形式の種類を入力してください．";
+    }
+
     if (!isYes && !isNo) {
-        alert('アイデアの提案が必要か選択してください．');
-        return;
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += 'アイデアの提案が必要か選択してください．';
     }
 
     if (!isHai && !isIie) {
-        alert('製作開始の依頼を選択してください．');
+        if (errorMessage.length != 0) {
+            errorMessage += "\n";
+        }
+        errorMessage += '製作開始の依頼を選択してください．';
+    }
+
+    if (error) {
+        alert(errorMessage);
         return;
     }
 
@@ -118,14 +186,14 @@ function generateTemplate() {
     - 形式： [${targetType}]
     
 5. カラーパレット
-    - [${color}]
+    - [${color.length > 0 ? color : "指定なし"}]
     
 6. デザインのスタイル
     - [${style}]
     
 7. 必要な要素
-    - テキスト: [${text.length > 0 ? text : "なし"}]
-    - ロゴ： [${logo.length > 0 ? logo : "なし"}]
+    - テキスト: [${text.length > 0 ? text : "指定なし"}]
+    - ロゴ： [${logo.length > 0 ? logo : "指定なし"}]
     
 8. 参考例
     - [${sankou.length > 0 ? sankou : "なし"}]
