@@ -210,7 +210,7 @@ function generateTemplate() {
     - [${sankou.length > 0 ? sankou : "なし"}]
     
 9. 納期
-    - [${time}]
+    - [${time.replace("T", " ")}]
     
 10. 追加の要望
     - [${youbou.length > 0 ? youbou : "なし"}]
