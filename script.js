@@ -211,8 +211,8 @@ function generateTemplate() {
     - [${sankou.length > 0 ? sankou : "なし"}]
     
 9. 納期
-    - [${time.replace("T", " ")}]
-    - [${bikou3.length > 0 ? bikou3 : "なし"}]
+    - 納期: [${time.replace("T", " ")}]
+    - 備考: [${bikou3.length > 0 ? bikou3 : "なし"}]
     
 10. 追加の要望
     - [${youbou.length > 0 ? youbou : "なし"}]
