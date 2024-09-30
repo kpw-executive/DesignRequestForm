@@ -200,7 +200,7 @@ function generateTemplate() {
     - [${color.length > 0 ? color : "指定なし"}]
     
 6. デザインのスタイル
-    - [${style}]
+    - [${style.length > 0 ? style : "指定なし"}]
     
 7. 必要な要素
     - テキスト: [${text.length > 0 ? text : "指定なし"}]
